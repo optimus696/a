@@ -3,11 +3,13 @@ let guess;
 let answer;
 let attempt=0;
 let ans;
-answer=Math.ceil(Math.random()*maxnum);
+
 console.log(answer);
 window.alert("welcome to guessing game");   
 do{ 
+   answer=Math.ceil(Math.random()*maxnum);
  do {
+  
    guess=window.prompt("guess the number");
    attempt++;
    if(guess<answer)
@@ -21,11 +23,12 @@ do{
 } while(guess!=answer)
    if(guess=answer)
    {
-      window.alert(`correct answer yay!!
+      window.alert(`correct answer yay!!  
  you took ${attempt} attempt to guess the number`);
    }
    ans=window.prompt("do you want to play again? Y/N ")
    attempt=0;
+   answer=Math.ceil(Math.random()*maxnum);
 } while( ans='Y')
 
 console.log("guess");
