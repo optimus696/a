@@ -1,39 +1,84 @@
-let maxnum=50;
-let guess;
-let answer;
+let main=document.getElementById("mainheading")
+let submain=document.getElementById("submain")
+let mainsub=document.getElementById("mainsub")
+let sudheading=document.getElementById("sudheading")
+let game=document.getElementById("game")
+let gameh=document.getElementById("gameh")
+let lowhigh=document.getElementById("lowhigh")
+let ans=document.getElementById("ans")
+let re=document.getElementById("re")
+let guess 
+let answer
 let attempt=0;
-let ans;
 
-console.log(answer);
-window.alert("welcome to guessing game");   
-do{ 
-   answer=Math.ceil(Math.random()*maxnum);
- do {
+
+function start(){
+    submain.style="display:none;"
+    main.style="display:none;"
+    mainsub.style="display:block"
+    sudheading.style="display:block"
+}
+function play(){
+    submain.style="display:none;"
+    main.style="display:none;"
+    mainsub.style="display:none"
+    sudheading.style="display:none"
+    game.style="display:block"
+    gameh.style="display:block"
+    lowhigh.style.display="block"
+    attempt=0
+    lowhigh.innerHTML="";
+   if(document.getElementById("easy").checked)
+   {
+     gameh.innerHTML="enter the number between 1 to 50"
+     answer=Math.ceil(Math.random()*50)
+   }
+   if(document.getElementById("normal").checked)
+   {
+     gameh.innerHTML="enter the number between 1 to 100"
+     answer=Math.ceil(Math.random()*100)
+   }
+    if(document.getElementById("hard").checked)
+   {
+     gameh.innerHTML="enter the number between 1 to 250"
+     answer=Math.ceil(Math.random()*250)
+   }
+     
+}
+function generate(){
+   
+    let guess = parseInt(document.getElementById("input").value);
+    
+    console.log(answer)
+   
+           if(isNaN(guess)){
+            lowhigh.innerHTML="please enter a number";
+            return;
+           }
+           attempt++;
+           if(guess>answer)
+           {
+            lowhigh.innerHTML=`${guess} is higher than answer`;
+           }
+           if(guess<answer)
+           {
+             lowhigh.innerHTML=`${guess} is lower than answer`;
+           }
+           if (answer===guess)
+           {
+            lowhigh.innerHTML=`that's the right answer. this took you ${attempt} attempts`;
+            re.style.display="block"
+           }
+    }
+function restart(){
+    main.style.display="block"
+    submain.style.display="block"
+     game.style="display:none"
+    gameh.style="display:none"
+    lowhigh.style.display="none"
+    re.style.display="none"
+
+}
+ 
+    
   
-   guess=window.prompt("guess the number");
-   attempt++;
-   if(guess<answer)
-   {
-      window.alert("low");
-   }
-   if(guess>answer)
-   {
-      window.alert("high");
-   }
-} while(guess!=answer)
-   if(guess=answer)
-   {
-      window.alert(`correct answer yay!!  
- you took ${attempt} attempt to guess the number`);
-   }
-   ans=window.prompt("do you want to play again? Y/N ")
-   attempt=0;
-   answer=Math.ceil(Math.random()*maxnum);
-} while( ans='Y')
-
-console.log("guess");
-console.log(guess);
-console.log("answer");
-
-console.log("attempt");
-console.log(attempt);

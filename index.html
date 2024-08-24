@@ -1,26 +1,49 @@
-<html>
-    <header>
-        <link rel="stylesheet" href="style.css"> 
-        <title></title>
-    </header>
-    <body>
-        <label for="easy"> EASY MODE</label>
-        <input type="radio" id="easy"><br>
-        <label for="normal"> NORMAL MODE</label>
-        <input type="radio" id="normal"><br>
-        <label for="hard"> HARD MODE</label>
-        <input type="radio" id="hard"><br>
-        <input type="submit" id="submit" onclick="find()"><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the number</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <h1 id="mainheading">
+         Welcome to the guessing game
+ </h1>
+ <h2 id="submain">
+    get started<br>
+    <button onclick="start()">
+        start
+    </button>
+ </h2>
+ <h1 id="mainsub">
+    Please select a mode to play
+ </h1>
+ <h2 id="sudheading">
+   <input type="radio" id="easy" name="mode" value="1">
+   <label for="easy">easy</label><br>
+   <input type="radio" id="normal" name="mode" value="2">
+   <label for="normal">normal</label><br>
+   <input type="radio" id="hard" name="mode" value="3">
+   <label for="hard">hard</label><br>
+   <button onclick="play()">play</button>
+ </h2>
+ <h1 id="gameh"></h1>
+ <h2 id="game">
+   
+   Enter your guess<br>
+     <input  id="input">
+     <button onclick="generate()">ok</button>
+ </h2>
+ <h1 id="lowhigh">
 
-        <input type="number" id="guess">
-        <input type="submit" id="hi" onclick="run()">
-        <h3 id="a"></h3>
-        <h3 id="b"></h3>
-        <h3 id="c"></h3>
-        <h3 id="d"></h3>
-        <h3 id="e"></h3>
-        <script src="index.js"></script>
-    </body>
-    <footer>
-    </footer>
+ </h1>
+ <h1 id="ans"></h1>
+ <button id="re" onclick="restart()">restart</button>
+    
+
+
+
+    <script src="index.js"></script>
+</body>
 </html>

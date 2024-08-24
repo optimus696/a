@@ -1,0 +1,26 @@
+#mainheading{
+    align-items: center;
+    text-align: center;
+}
+#submain{
+    text-align: center;
+    
+}
+#mainsub{
+    text-align: center;
+    display: none;
+}
+#sudheading{
+    text-align: center;
+    display: none;
+}
+#game{
+    text-align: center;
+    display: none;
+}
+#gameh{
+    display:none;
+}
+#re{
+    display: none;
+}
