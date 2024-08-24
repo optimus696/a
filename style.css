@@ -49,12 +49,12 @@
 }
 #gameh{
     display:none;
-    opacity: 0;
+    opacity: 1;
     animation: opa 2s;
 }
 #re{
     display: none;
-    opacity: 0;
+    opacity: 1;
     animation: opa 2s;
 }
 #submain button{
@@ -77,10 +77,10 @@
     0%{transform:translateX(500px) ;}
 }
 @keyframes left{
-    from{transform: translateX(-500px);}
+    from{transform: translateX(-800px);}
 }
 @keyframes opa {
-    from{opacity: 1;}
+    from{opacity: 0;}
     
     
 }
