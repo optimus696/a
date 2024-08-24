@@ -1,26 +1,91 @@
 #mainheading{
+    font-size: 4em;
+    width: auto;
     align-items: center;
     text-align: center;
+    animation: up 2s;
+  
 }
+
 #submain{
+    font-size: 3em;
     text-align: center;
-    
+    animation: left 5s;
 }
 #mainsub{
     text-align: center;
     display: none;
+    animation: down 2s;
 }
 #sudheading{
     text-align: center;
     display: none;
+    animation: right 3s;
 }
+#sudheading button{
+    border-radius: 20px;
+    background-color: aqua;
+    font-size: 40px;
+    margin: 50px;
+}
+#sudheading button:hover{
+    background-color: rgb(26, 172, 172);
+}
+
 #game{
     text-align: center;
     display: none;
+    animation: go 2s;
+}
+#game button{
+    background-color: rgb(79, 79, 219);
+    border-radius: 15px;
+    font-size: 30px;
+    margin: 20px;
+}
+#game input{
+    border-radius: 5px;
+
 }
 #gameh{
     display:none;
+    opacity: 0;
+    animation: opa 2s;
 }
 #re{
     display: none;
+    opacity: 0;
+    animation: opa 2s;
 }
+#submain button{
+    border-radius: 20px;
+    width: 100px;
+    height: 50px;
+    font-size: 30px;
+    background-color: hsl(113, 100%, 55%);
+}
+#submain button:hover{
+    background-color: hsl(113, 57%, 50%);
+    width: 99px;
+    height: 51px;
+}
+@keyframes up{
+  from {transform:translateY(600px) ;}
+  
+}
+@keyframes right{
+    0%{transform:translateX(500px) ;}
+}
+@keyframes left{
+    from{transform: translateX(-500px);}
+}
+@keyframes opa {
+    from{opacity: 0;}
+    to{opacity: 1;}
+    
+}
+@keyframes down{
+    from {transform:translateY(-600px) ;}
+    
+  }
+
