@@ -3,78 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess the number</title>
-<link rel="stylesheet" href="style.css">
+    <title>Send Location</title>
 </head>
 <body>
-<div>
-  <h1 id="mainheading">
-<div  id="anime">
-  <h1 id="v">W</h1>
-  <h1 id="w" >e</h1>
-  <h1 id="v">l</h1>
-  <h1 id="u">c</h1>
-  <h1 id="t">o</h1>
-  <h1 id="s">m</h1>
-  <h1 id="r">e</h1>
-  <h1 id="inv">s</h1>
-  <h1 id="q">t</h1>
-  <h1 id="p">o</h1>
-  <h1  id="inv">s</h1>
-  <h1 id="o">t</h1>
-  <h1 id="n">h</h1>
-  <h1 id="m">e</h1>
-  <h1 id="inv">s</h1>
-  <h1 id="l">g</h1>
-  <h1 id="k">u</h1>
-  <h1 id="j">e</h1>
-  <h1 id="i">s</h1>
-  <h1 id="h">s</h1>
-  <h1 id="g">i</h1>
-  <h1 id="f">n</h1>
-  <h1 id="e">g</h1>
-  <h1 id="inv">s</h1>
-  <h1 id="d">g</h1>
-  <h1 id="c">a</h1>
-  <h1 id="b">m</h1>
-  <h1 id="a">e</h1>
-</div>
-</h1>
-<h2 id="submain">
-Get started<br>
-<button onclick="start()">
-   start
-</button>
-</div>
- </h2>
- <h1 id="mainsub">
-    Please select a mode to play
- </h1>
- <h2 id="sudheading">
-   <input type="radio" id="easy" name="mode" value="1">
-   <label for="easy">easy</label><br>
-   <input type="radio" id="normal" name="mode" value="2">
-   <label for="normal">normal</label><br>
-   <input type="radio" id="hard" name="mode" value="3">
-   <label for="hard">hard</label><br>
-   <button onclick="play()">play</button>
- </h2>
- <h1 id="gameh"></h1>
- <h2 id="game">
-   
-   Enter your guess<br>
-     <input  id="input"><br>
-     <button onclick="generate()">ok</button>
- </h2>
- <h1 id="lowhigh">
+    <h1>Send Your Location</h1>
+    <script>
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(sendLocation);
+        } else {
+            console.log("Geolocation is not supported by this browser.");
+        }
 
- </h1>
- <h1 id="ans"></h1>
- <button id="re" onclick="restart()">restart</button>
-    
+        function sendLocation(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
 
+            const formData = new FormData();
+            formData.append('latitude', latitude);
+            formData.append('longitude', longitude);
 
-
-    <script src="index.js"></script>
+            fetch('https://formspree.io/f/xqaznkav', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                },
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert('Location sent successfully!');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error sending location.');
+            });
+        }
+    </script>
 </body>
 </html>
